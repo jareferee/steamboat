@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Returning to the sideline · Steamboat Mountain Soccer Tournament</title>
+<meta name="theme-color" content="#0E2438">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#0E2438; --slate-2:#17334B; --slate-3:#1F4260;
+  --ice:#7FB8DE; --ice-pale:#C5E0F2; --steel:#8E9BA9; --snow:#F2F6F9;
+  --caution:#E0A22B; --flag:#C4472F; --go:#4FA87A;
+  --disp:'Barlow Condensed',Impact,sans-serif;
+  --body:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--slate);color:var(--snow);font-family:var(--body);
+  font-size:16px;line-height:1.62;padding-bottom:40px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 90% 50% at 50% -8%,rgba(127,184,222,.13) 0%,transparent 60%)}
+
+/* SMST shield watermark */
+body::after{
+  content:'';position:fixed;z-index:0;pointer-events:none;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(88vw,540px);height:min(88vw,540px);
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20244%22%3E%20%3Cpath%20d%3D%22M14%2032%20L47%209%20L70%2036%20L100%207%20L130%2036%20L153%209%20L186%2032%20L186%20142%20C186%20197%20148%20229%20100%20238%20C52%20229%2014%20197%2014%20142%20Z%22%20fill%3D%22none%22%20stroke%3D%22%237FB8DE%22%20stroke-width%3D%225%22%2F%3E%20%3Cpath%20d%3D%22M27%2045%20L52%2028%20L71%2050%20L100%2026%20L129%2050%20L148%2028%20L173%2045%20L173%20140%20C173%20186%20142%20213%20100%20221%20C58%20213%2027%20186%2027%20140%20Z%22%20fill%3D%22none%22%20stroke%3D%22%237FB8DE%22%20stroke-width%3D%222%22%20opacity%3D%22.6%22%2F%3E%20%3Cpath%20d%3D%22M36%20141%20L74%2084%20L97%20114%20L125%2072%20L164%20141%20Z%22%20fill%3D%22%237FB8DE%22%20opacity%3D%22.85%22%2F%3E%20%3Ccircle%20cx%3D%22100%22%20cy%3D%22176%22%20r%3D%2227%22%20fill%3D%22none%22%20stroke%3D%22%237FB8DE%22%20stroke-width%3D%224%22%2F%3E%20%3Cpath%20d%3D%22M100%20158%20L112%20167%20L107%20181%20L93%20181%20L88%20167%20Z%22%20fill%3D%22%237FB8DE%22%20opacity%3D%22.7%22%2F%3E%20%3C%2Fsvg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:contain;
+  opacity:.04;
+}
+@media (max-width:520px){ body::after{ opacity:.05 } }
+.wrap{position:relative;z-index:1;max-width:600px;margin:0 auto;padding:0 20px}
+
+.top{padding:26px 0 0;display:flex;align-items:center;gap:12px}
+.shield{width:38px;height:44px;flex-shrink:0;
+  background:linear-gradient(160deg,var(--slate-3),var(--slate-2));
+  border:1.5px solid var(--steel);border-radius:5px 5px 18px 18px/5px 5px 26px 26px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--disp);font-weight:900;font-size:9px;color:var(--ice);letter-spacing:.05em}
+.top .t{font-family:var(--disp);font-weight:800;font-size:16px;letter-spacing:.09em;
+  text-transform:uppercase;line-height:1.1}
+.top .s{font-family:var(--mono);font-size:9px;color:var(--steel);letter-spacing:.09em;margin-top:2px}
+
+h1{font-family:var(--disp);font-weight:900;font-size:40px;letter-spacing:.02em;
+  line-height:.98;margin:26px 0 0;text-transform:uppercase}
+.intro{margin-top:18px;padding:20px 22px;border-radius:14px;
+  background:rgba(23,51,75,.5);border:1px solid rgba(127,184,222,.2)}
+.intro p{margin:0 0 13px;font-size:15.5px;color:var(--ice-pale)}
+.intro p:last-child{margin-bottom:0}
+.intro b{color:#fff;font-weight:600}
+.intro .out{color:var(--steel);font-size:14.5px}
+
+.prog{position:sticky;top:0;z-index:20;background:rgba(14,36,56,.95);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  margin:26px -20px 0;padding:11px 20px;border-bottom:1px solid rgba(127,184,222,.16)}
+.prog-in{max-width:600px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.prog-bar{flex:1;height:5px;border-radius:99px;background:rgba(127,184,222,.16);overflow:hidden}
+.prog-fill{height:100%;width:0%;background:var(--ice);border-radius:99px;transition:width .3s ease}
+.prog-txt{font-family:var(--mono);font-size:10.5px;color:var(--steel);white-space:nowrap}
+
+.q{margin-top:30px}
+.q-n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ice);margin-bottom:7px}
+.q-t{font-family:var(--body);font-weight:600;font-size:17.5px;line-height:1.45;margin-bottom:13px}
+.opts{display:grid;gap:8px}
+.opt{appearance:none;cursor:pointer;text-align:left;width:100%;
+  background:rgba(23,51,75,.45);border:1.5px solid rgba(127,184,222,.18);
+  border-radius:11px;padding:13px 15px;color:var(--snow);font-family:var(--body);
+  font-size:15.5px;line-height:1.45;transition:.15s}
+.opt:hover{border-color:rgba(127,184,222,.5)}
+.opt.picked{border-color:var(--ice);background:rgba(127,184,222,.14)}
+.opt.right{border-color:var(--go);background:rgba(79,168,122,.14)}
+.opt.wrong{border-color:rgba(196,71,47,.6);background:rgba(196,71,47,.1)}
+.opt .mark{float:right;margin-left:10px;font-weight:700}
+.opt.right .mark{color:var(--go)}
+.opt.wrong .mark{color:#F0A897}
+.note{margin-top:9px;font-size:14px;color:var(--ice-pale);padding:11px 14px;
+  border-left:2px solid var(--ice);background:rgba(23,51,75,.4);border-radius:0 8px 8px 0;display:none}
+.note.on{display:block}
+.note.why{border-left-color:var(--caution);background:rgba(224,162,43,.09);color:#EBD3A0}
+
+.ack{margin-top:38px;padding:22px;border-radius:14px;
+  background:rgba(224,162,43,.07);border:1.5px solid rgba(224,162,43,.35)}
+.ack h2{font-family:var(--disp);font-weight:900;font-size:22px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--caution);margin:0 0 13px}
+.ack p{margin:0 0 12px;font-size:15px;color:var(--ice-pale)}
+.ack p:last-of-type{margin-bottom:0}
+.ack b{color:#fff;font-weight:600}
+
+.fields{margin-top:22px}
+label.f{display:block;margin-bottom:13px}
+label.f>span{display:block;font-size:11px;font-weight:600;color:var(--steel);
+  letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+input[type=text],input[type=email]{width:100%;background:rgba(9,25,40,.72);
+  border:1.5px solid rgba(127,184,222,.24);border-radius:10px;color:var(--snow);
+  font-family:var(--body);font-size:16px;padding:12px 14px;outline:none}
+input:focus{border-color:var(--ice)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+@media(max-width:430px){.row2{grid-template-columns:1fr}}
+
+.agree{display:flex;align-items:flex-start;gap:11px;cursor:pointer;margin-top:6px;
+  padding:15px;border-radius:11px;background:rgba(9,25,40,.5);
+  border:1.5px solid rgba(127,184,222,.22);transition:.15s}
+.agree:has(input:checked){border-color:var(--go);background:rgba(79,168,122,.09)}
+.agree input{accent-color:var(--go);width:20px;height:20px;margin:2px 0 0;flex-shrink:0}
+.agree span{font-size:15px;line-height:1.5}
+
+.send{width:100%;appearance:none;border:0;cursor:pointer;border-radius:12px;
+  background:var(--ice);color:var(--slate);font-family:var(--disp);font-weight:900;
+  font-size:20px;letter-spacing:.09em;text-transform:uppercase;padding:16px;
+  margin-top:18px;transition:filter .15s}
+.send:hover{filter:brightness(1.07)}
+.send:disabled{opacity:.45;cursor:not-allowed}
+.err{color:#F0A897;font-size:14px;margin-top:10px;min-height:19px}
+
+.done{display:none;text-align:center;padding:70px 10px 40px}
+.done.on{display:block}
+.done .tick{width:82px;height:82px;margin:0 auto 22px;border-radius:50%;
+  background:rgba(79,168,122,.15);border:2px solid var(--go);color:var(--go);
+  display:flex;align-items:center;justify-content:center;font-size:40px}
+.done h2{font-family:var(--disp);font-weight:900;font-size:34px;letter-spacing:.03em;
+  text-transform:uppercase;margin:0 0 12px}
+.done p{color:var(--ice-pale);font-size:16px;margin:0 auto 12px;max-width:400px}
+
+.foot{margin-top:40px;padding:20px 0 8px;text-align:center;
+  border-top:1px solid rgba(127,184,222,.13);
+  font-family:var(--mono);font-size:9.5px;color:var(--steel);line-height:1.85}
+.foot a{color:var(--ice);text-decoration:none}
+.jaref{margin-top:14px}
+.jaref a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:inherit}
+.jaref img{width:22px;height:22px;border:0;opacity:.9}
+.jaref b{font-family:var(--disp);font-weight:900;font-size:14px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ice-pale)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="main">
+  <div class="top">
+    <div class="shield">SMST</div>
+    <div>
+      <div class="t">Steamboat Mountain</div>
+      <div class="s">SOCCER TOURNAMENT · 42ND ANNUAL</div>
+    </div>
+  </div>
+
+  <h1>Returning to<br>the sideline</h1>
+
+  <div class="intro">
+    <p>You were asked to leave a game today. That happened because of how you spoke to or treated a match official.</p>
+    <p>This is <b>not a punishment page</b> and it is <b>not a test you can fail</b>. It takes about four minutes. If you pick a wrong answer it will tell you why and let you try again, so there is nothing to fail. Finish it, send the acknowledgement, and you are welcome back on the sideline for the rest of the tournament.</p>
+    <p class="out">You do not have to do this. If you would rather not, that is your call. You sit out today's game only, and you are welcome back tomorrow either way. Nobody is going to stop you at the gate.</p>
+    <p>We are asking because we would rather have you here than not.</p>
+  </div>
+
+  <div class="prog">
+    <div class="prog-in">
+      <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+      <div class="prog-txt" id="progTxt">0 of 10</div>
+    </div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="ack">
+    <h2>Acknowledgement</h2>
+    <p>I understand that I was dismissed from a match today for my conduct toward a match official.</p>
+    <p>I understand that referees at this tournament are frequently teenagers, and that they deserve <b>the same respect and protection I would want for my own child</b>.</p>
+    <p>I understand that if this happens again I will be removed from the tournament grounds for the remainder of the event, and that conduct rising to the level of assault on an official may be referred to law enforcement.</p>
+    <p>I am choosing to complete this so I can return to the sideline and support my team.</p>
+  </div>
+
+  <div class="fields">
+    <label class="f"><span>Your name</span>
+      <input type="text" id="fName" autocomplete="name" placeholder="First and last"></label>
+    <label class="f"><span>Email</span>
+      <input type="email" id="fEmail" autocomplete="email" placeholder="So we can confirm you are cleared"></label>
+    <div class="row2">
+      <label class="f"><span>Team you support</span>
+        <input type="text" id="fTeam" placeholder="Club and age group"></label>
+      <label class="f"><span>Game number, if you know it</span>
+        <input type="text" id="fGame" placeholder="Optional"></label>
+    </div>
+
+    <label class="agree">
+      <input type="checkbox" id="fAgree">
+      <span>I have read the acknowledgement above and I agree to it.</span>
+    </label>
+
+    <button class="send" id="sendBtn" onclick="submitRap()">Send acknowledgement</button>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div class="foot">
+    Grounded in US Soccer Policy 531-9, misconduct toward game officials.<br>
+    Steamboat Soccer Club · <a href="https://www.steamboat-soccer.com/tournament-a" target="_blank" rel="noopener">steamboat-soccer.com</a>
+    <div class="jaref">
+      <a href="https://jareferee.com" target="_blank" rel="noopener">
+        <img src="https://jareferee.github.io/GamedayCommandCenter/assets/brand/jareferee-mark-light.png"
+             alt="JAReferee" width="22" height="22"><b>JAReferee</b>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="done" id="done">
+  <div class="tick">✓</div>
+  <h2>You are cleared</h2>
+  <p>Thank you. You are welcome back on the sideline for the rest of the tournament.</p>
+  <p style="color:var(--steel);font-size:14px">Tournament staff have been notified. Go enjoy the rest of the weekend.</p>
+</div>
+
+<script src="https://jareferee.github.io/GamedayCommandCenter/config.js"></script>
+<script>
+var BACKEND = (window.JAR && JAR.BACKEND) || 'https://script.google.com/macros/s/AKfycbxQXvVq-gtGfUvgXF3NJXkFU_4aVlqFclU0bF0B0dQWbpjb42tstU7UnbKLf5DFP3PY/exec';
+
+var Q=[
+ {q:'During a match, who has final authority on decisions of fact, whether it was a foul, a goal, or offside?',
+  a:['The head coach','The referee','The tournament director','Whoever is loudest'],c:1,
+  why:['A coach can ask a question. A coach cannot overturn a decision, and neither can anyone else on the sideline.',
+       '',
+       'The tournament director handles conduct and scheduling. What happened on the field is the referee\u2019s call and it stands.',
+       'Volume has never changed a decision at any level of this game.'],
+  n:'The referee\u2019s decision on a point of fact is final. Not the coach, not the sideline, not the tournament.'},
+
+ {q:'Most referees working this tournament are:',
+  a:['Full-time professionals','Teenagers and young adults, many in their first seasons','Retired college coaches','Volunteers with no training'],c:1,
+  why:['Almost none of them are. Most are fitting this around school.',
+       '',
+       'A few officials come out of coaching, but that is not who is working this weekend.',
+       'They are trained and certified by US Soccer. Young, yes. Untrained, no.'],
+  n:'A lot of the crews here are teenagers. Some are working their first ever match this weekend.'},
+
+ {q:'US Soccer defines referee abuse as:',
+  a:['Only physical contact','Language or behaviour that is insulting, offensive, threatening, or degrading toward an official','Any disagreement with a call','Cheering loudly for your team'],c:1,
+  why:['Physical contact is assault, which is separate and more serious. Abuse does not require touching anyone.',
+       '',
+       'Disagreeing is not abuse. How it gets expressed can be.',
+       'Cheer as loud as you like. This is about what gets aimed at officials.'],
+  n:'You do not have to touch anyone to commit abuse. Words are enough.'},
+
+ {q:'US Soccer defines referee assault as:',
+  a:['Yelling at a referee','Physical contact or an attempt at physical contact with an official','Emailing a complaint','Walking onto the field'],c:1,
+  why:['That is abuse. Serious, but a different category with different consequences.',
+       '',
+       'A complaint through the proper channel is not misconduct at all. It is the right thing to do.',
+       'Entering the field without permission is its own offence, but it is not assault unless there is contact or an attempt at it.'],
+  n:'Assault includes the attempt. You do not have to connect.'},
+
+ {q:'If a stranger stood on the sideline and screamed at your child the way an official gets screamed at, you would:',
+  a:['Think it was fine','Ignore it','Stop it immediately','Join in'],c:2,
+  why:['You would not, and that is the point of the question.',
+       'Nobody ignores that. You would be across the field before anyone finished a sentence.',
+       '',
+       'Nobody would, which is exactly why it cannot be aimed at somebody else\u2019s kid either.'],
+  n:'That is the whole point. We would not allow anyone to scream at your kid, and we will not allow anyone to scream at ours.'},
+
+ {q:'You strongly believe the referee got a call wrong. The right move is:',
+  a:['Yell until they change it','Follow them to the parking lot','Let it go during the match, and raise it with your coach or the tournament director afterward','Post about them online'],c:2,
+  why:['It has never once worked, and the decision stands either way.',
+       'That is the point where this stops being about soccer and becomes a police matter.',
+       '',
+       'Naming a teenager online has ended officiating careers and has drawn legal action. Not here.'],
+  n:'There is a real channel for this, and using it actually works. Shouting does not.'},
+
+ {q:'During the match, a parent or spectator may address the referee:',
+  a:['Any time, about anything','Not at all, the coach is the only person who may communicate with officials','Only at halftime','Only if the score is close'],c:1,
+  why:['The coach is the single point of contact. That is the structure of the game, not a courtesy.',
+       '',
+       'Not at halftime either. The coach speaks to officials. Nobody else does.',
+       'The scoreline has no bearing on who may speak to the referee.'],
+  n:'The coach is the single point of contact. That is not a courtesy, it is the structure of the game.'},
+
+ {q:'When a referee dismisses you from a game:',
+  a:['It only counts if you agree with it','You may stay if you promise to be quiet','You leave the field area, and the decision stands whether or not you agree','You can appeal it on the spot'],c:2,
+  why:['It counts either way. There is no version of this that needs your agreement.',
+       'The match does not restart until you have left. Staying holds up the children\u2019s game.',
+       '',
+       'Afterwards, through the tournament director. Not on the touchline, and not during the match.'],
+  n:'The match does not restart until you have left. Staying makes it worse for the players.'},
+
+ {q:'Which of these is the right thing to shout at a referee from the sideline?',
+  a:['"Are you blind?"','"That\u2019s a terrible call, ref!"','"Good job, ref!"','Anything, it is a free country'],c:2,
+  why:['That is the sort of thing that ends a fifteen year old\u2019s officiating career.',
+       'Still aimed at the official, still dissent, and still gets you asked to leave.',
+       '',
+       'Free speech is not a defence against being removed from a private event.'],
+  n:'That is the one. It costs nothing and it keeps a teenager coming back next season.'},
+
+ {q:'If this happens a second time at this tournament:',
+  a:['Nothing changes','You get another form','You are removed from the tournament grounds, and conduct that rises to assault is referred to law enforcement','You get a warning'],c:2,
+  why:['It does change. Removal from the grounds for the rest of the event.',
+       'There is no second form. This is the one chance.',
+       '',
+       'This was the warning.'],
+  n:'One more chance is exactly that. One.'}
+];
+
+var picked={};
+var P=new URLSearchParams(location.search);
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+function render(){
+  document.getElementById('quiz').innerHTML=Q.map(function(item,i){
+    return '<div class="q"><div class="q-n">Question '+(i+1)+' of 10</div>'+
+      '<div class="q-t">'+esc(item.q)+'</div><div class="opts">'+
+      item.a.map(function(opt,j){
+        return '<button class="opt" id="o'+i+'_'+j+'" onclick="pick('+i+','+j+')">'+esc(opt)+'</button>';
+      }).join('')+'</div><div class="note" id="n'+i+'">'+esc(item.n)+'</div></div>';
+  }).join('');
+}
+
+var tried={};
+
+// A wrong answer says why it is wrong and leaves the question open. There
+// is still no score and nothing to fail, but you do have to arrive at the
+// right answer before moving on, because that is the whole point of the page.
+function pick(i,j){
+  if(picked[i]!=null) return;                  // already correct, leave it alone
+  if(tried[i] && tried[i][j]) return;          // already ruled this one out
+
+  var right=Q[i].c;
+  var note=document.getElementById('n'+i);
+
+  if(j!==right){
+    tried[i]=tried[i]||{};
+    tried[i][j]=true;
+    var el=document.getElementById('o'+i+'_'+j);
+    el.classList.add('wrong');
+    el.disabled=true;
+    el.innerHTML+='<span class="mark">\u2715</span>';
+    note.className='note on why';
+    note.textContent=(Q[i].why && Q[i].why[j]) || 'Not that one. Try again.';
+    return;
+  }
+
+  picked[i]=j;
+  Q[i].a.forEach(function(_,k){
+    var b=document.getElementById('o'+i+'_'+k);
+    b.disabled=true;
+    if(k===right){ b.classList.add('right'); b.innerHTML+='<span class="mark">\u2713</span>'; }
+  });
+  note.className='note on';
+  note.textContent=Q[i].n;
+  updateProgress();
+}
+
+function updateProgress(){
+  var n=Object.keys(picked).length;
+  document.getElementById('progFill').style.width=(n/Q.length*100)+'%';
+  document.getElementById('progTxt').textContent=n+' of '+Q.length;
+}
+
+function score(){
+  var s=0;
+  Object.keys(picked).forEach(function(i){ if(picked[i]===Q[i].c) s++; });
+  return s;
+}
+
+function submitRap(){
+  var err=document.getElementById('err'); err.textContent='';
+  var name=document.getElementById('fName').value.trim();
+  var email=document.getElementById('fEmail').value.trim();
+
+  if(!name){ err.textContent='Please enter your name.'; return; }
+  if(!email||email.indexOf('@')<0){ err.textContent='Please enter an email address we can reply to.'; return; }
+  if(!document.getElementById('fAgree').checked){
+    err.textContent='Please read and agree to the acknowledgement above.'; return; }
+
+  var answered=Object.keys(picked).length;
+  if(answered<Q.length){
+    var left=Q.length-answered;
+    err.textContent=left===1
+      ? 'One question still open. Keep going until you land on the right answer.'
+      : left+' questions still open. Keep going until you land on the right answer on each one.';
+    return;
+  }
+
+  var btn=document.getElementById('sendBtn');
+  btn.disabled=true; btn.textContent='Sending…';
+
+  fetch(BACKEND,{method:'POST',body:JSON.stringify({
+    action:'submitRap',
+    incidentId:P.get('id')||'',
+    name:name, email:email,
+    team:document.getElementById('fTeam').value.trim(),
+    gameNumber:document.getElementById('fGame').value.trim()||P.get('game')||'',
+    date:P.get('date')||'',
+    score:score(), total:Q.length,
+    acknowledged:true,
+    userAgent:navigator.userAgent
+  })}).then(function(r){return r.json();}).then(function(res){
+    if(res&&res.status==='ok'){
+      document.getElementById('main').style.display='none';
+      document.getElementById('done').classList.add('on');
+      window.scrollTo(0,0);
+    } else {
+      btn.disabled=false; btn.textContent='Send acknowledgement';
+      err.textContent=(res&&res.message)||'Could not send. Please try again.';
+    }
+  }).catch(function(){
+    btn.disabled=false; btn.textContent='Send acknowledgement';
+    err.textContent='No connection. Please try again in a moment.';
+  });
+}
+
+render(); updateProgress();
+</script>
+</body>
+</html>
