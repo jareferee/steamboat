@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Page not found · Steamboat Mountain Soccer Tournament</title>
+<meta name="theme-color" content="#0E2438">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#0E2438; --slate-2:#17334B; --slate-3:#1F4260;
+  --ice:#7FB8DE; --ice-pale:#C5E0F2; --steel:#8E9BA9; --snow:#F2F6F9;
+  --disp:'Barlow Condensed',Impact,sans-serif;
+  --body:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;min-height:100%}
+body{background:var(--slate);color:var(--snow);font-family:var(--body);
+  font-size:16px;line-height:1.6;display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:28px 20px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 90% 55% at 50% -10%,rgba(127,184,222,.15) 0%,transparent 62%)}
+.wrap{position:relative;z-index:1;max-width:440px;width:100%;text-align:center}
+.shield{width:56px;height:66px;margin:0 auto 20px;
+  background:linear-gradient(160deg,var(--slate-3),var(--slate-2));
+  border:1.5px solid var(--steel);border-radius:7px 7px 26px 26px/7px 7px 38px 38px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--disp);font-weight:900;font-size:12px;color:var(--ice);letter-spacing:.06em}
+.code{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--steel)}
+h1{font-family:var(--disp);font-weight:900;font-size:38px;letter-spacing:.02em;
+  line-height:1.02;margin:9px 0 0;text-transform:uppercase}
+p{margin:12px 0 0;color:var(--ice-pale);font-size:15px}
+.links{margin-top:26px;display:grid;gap:9px}
+.links a{display:block;text-decoration:none;border-radius:12px;padding:14px 16px;
+  background:rgba(23,51,75,.55);border:1.5px solid rgba(127,184,222,.24);color:var(--snow);
+  transition:border-color .16s,background .16s;text-align:left}
+.links a:hover{border-color:var(--ice);background:rgba(23,51,75,.8)}
+.links a.primary{background:var(--ice);border-color:var(--ice);color:var(--slate)}
+.links b{display:block;font-family:var(--disp);font-weight:900;font-size:18px;
+  letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.links i{display:block;font-style:normal;font-size:12.5px;margin-top:4px;color:var(--steel)}
+.links a.primary i{color:rgba(14,36,56,.72)}
+.foot{margin-top:26px;padding-top:16px;border-top:1px solid rgba(127,184,222,.14);
+  font-family:var(--mono);font-size:9.5px;color:var(--steel);line-height:1.85}
+.foot a{color:var(--ice);text-decoration:none}
+.jaref{margin-top:12px;display:inline-flex;align-items:center;gap:8px}
+.jaref img{width:20px;height:20px;border:0;opacity:.9}
+.jaref b{font-family:var(--disp);font-weight:900;font-size:13px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ice-pale)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="shield">SMST</div>
+  <div class="code">Error 404</div>
+  <h1>That page<br>does not exist</h1>
+  <p>Either the link is out of date or something is still being built. Nothing is broken on your end.</p>
+
+  <div class="links">
+    <a class="primary" href="/steamboat/">
+      <b>Tournament home</b>
+      <i>Scores, fields, referee check in</i>
+    </a>
+    <a href="/steamboat/scoreboard.html">
+      <b>Live scores</b>
+      <i>Every game, updated as they finish</i>
+    </a>
+    <a href="https://www.steamboat-soccer.com/tournament-a">
+      <b>Steamboat Soccer Club</b>
+      <i>Schedules, lodging, tournament information</i>
+    </a>
+  </div>
+
+  <div class="foot">
+    If a referee or tournament official sent you here, tell them the link is wrong.<br>
+    Steamboat Springs, Colorado
+    <div class="jaref">
+      <a href="https://jareferee.com" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px">
+        <img src="https://jareferee.github.io/GamedayCommandCenter/assets/brand/jareferee-mark-light.png"
+             alt="JAReferee" width="20" height="20"><b>JAReferee</b>
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
