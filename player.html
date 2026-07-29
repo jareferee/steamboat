@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Check a player · Steamboat Mountain Soccer Tournament</title>
+<meta name="theme-color" content="#0E2438">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#0E2438; --slate-2:#17334B; --slate-3:#1F4260;
+  --ice:#7FB8DE; --ice-pale:#C5E0F2; --steel:#8E9BA9; --snow:#F2F6F9;
+  --caution:#E0A22B; --flag:#C4472F; --go:#4FA87A;
+  --disp:'Barlow Condensed',Impact,sans-serif;
+  --body:'Inter',-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:var(--slate);color:var(--snow);font-family:var(--body);
+  font-size:16px;line-height:1.6;padding-bottom:40px}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse 90% 50% at 50% -8%,rgba(127,184,222,.14) 0%,transparent 60%)}
+.wrap{position:relative;z-index:1;max-width:520px;margin:0 auto;padding:0 20px}
+
+.top{padding:26px 0 0;display:flex;align-items:center;gap:12px}
+.shield{width:36px;height:42px;flex-shrink:0;background:linear-gradient(160deg,var(--slate-3),var(--slate-2));
+  border:1.5px solid var(--steel);border-radius:5px 5px 18px 18px/5px 5px 26px 26px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--disp);font-weight:900;font-size:8.5px;color:var(--ice);letter-spacing:.05em}
+.top .t{font-family:var(--disp);font-weight:800;font-size:15px;letter-spacing:.09em;
+  text-transform:uppercase;line-height:1.1}
+.top .s{font-family:var(--mono);font-size:8.5px;color:var(--steel);letter-spacing:.09em;margin-top:2px}
+
+h1{font-family:var(--disp);font-weight:900;font-size:36px;letter-spacing:.02em;
+  line-height:1;margin:24px 0 0;text-transform:uppercase}
+.lede{margin:10px 0 0;color:var(--ice-pale);font-size:15px}
+
+.form{margin-top:22px}
+label.f{display:block;margin-bottom:13px}
+label.f>span{display:block;font-size:11px;font-weight:600;color:var(--steel);
+  letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+input[type=text],select{width:100%;background:rgba(9,25,40,.72);
+  border:1.5px solid rgba(127,184,222,.24);border-radius:11px;color:var(--snow);
+  font-family:var(--body);font-size:17px;padding:13px 14px;outline:none}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--steel) 50%),linear-gradient(135deg,var(--steel) 50%,transparent 50%);background-position:calc(100% - 19px) 50%,calc(100% - 14px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:38px}
+input:focus,select:focus{border-color:var(--ice)}
+.check{width:100%;appearance:none;border:0;cursor:pointer;border-radius:12px;
+  background:var(--ice);color:var(--slate);font-family:var(--disp);font-weight:900;
+  font-size:20px;letter-spacing:.09em;text-transform:uppercase;padding:15px;margin-top:5px}
+.check:disabled{opacity:.5;cursor:not-allowed}
+
+.result{display:none;margin-top:22px;border-radius:16px;padding:24px 22px;text-align:center;
+  border:2px solid rgba(127,184,222,.3);background:rgba(23,51,75,.5)}
+.result.on{display:block}
+.result.green{border-color:var(--go);background:rgba(79,168,122,.13)}
+.result.amber{border-color:var(--caution);background:rgba(224,162,43,.11)}
+.result.red{border-color:var(--flag);background:rgba(196,71,47,.12)}
+.result.grey{border-color:rgba(142,155,169,.4);background:rgba(23,51,75,.5)}
+.lamp{width:62px;height:62px;border-radius:50%;margin:0 auto 15px;
+  display:flex;align-items:center;justify-content:center;font-size:30px}
+.result.green .lamp{background:rgba(79,168,122,.2);border:2px solid var(--go);color:var(--go)}
+.result.amber .lamp{background:rgba(224,162,43,.16);border:2px solid var(--caution);color:var(--caution)}
+.result.red   .lamp{background:rgba(196,71,47,.18);border:2px solid var(--flag);color:#F0A897}
+.result.grey  .lamp{background:rgba(142,155,169,.14);border:2px solid var(--steel);color:var(--steel)}
+.r-label{font-family:var(--disp);font-weight:900;font-size:30px;letter-spacing:.03em;
+  text-transform:uppercase;line-height:1.02}
+.result.green .r-label{color:var(--go)}
+.result.amber .r-label{color:var(--caution)}
+.result.red   .r-label{color:#F0A897}
+.r-who{font-family:var(--mono);font-size:12px;color:var(--ice-pale);margin-top:9px;letter-spacing:.03em}
+.r-detail{margin:14px auto 0;font-size:14.5px;color:var(--ice-pale);max-width:360px}
+.watching{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);
+  font-family:var(--mono);font-size:10.5px;color:var(--steel);letter-spacing:.05em;
+  display:flex;align-items:center;justify-content:center;gap:7px}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--caution);
+  animation:beat 1.8s ease-in-out infinite}
+@keyframes beat{0%,100%{opacity:1}50%{opacity:.25}}
+.cheer{margin-top:14px;font-size:15px;color:var(--go);font-weight:600}
+
+.note{margin-top:20px;padding:15px 17px;border-radius:12px;font-size:13.5px;line-height:1.6;
+  background:rgba(23,51,75,.45);border-left:2px solid var(--ice);color:var(--ice-pale)}
+.note b{color:#fff;font-weight:600}
+.err{color:#F0A897;font-size:14px;margin-top:11px;min-height:19px;text-align:center}
+
+.foot{margin-top:34px;padding:18px 0 8px;text-align:center;border-top:1px solid rgba(127,184,222,.13);
+  font-family:var(--mono);font-size:9.5px;color:var(--steel);line-height:1.85}
+.foot a{color:var(--ice);text-decoration:none}
+.jaref{margin-top:13px}
+.jaref a{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:inherit}
+.jaref img{width:22px;height:22px;border:0;opacity:.9}
+.jaref b{font-family:var(--disp);font-weight:900;font-size:14px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--ice-pale)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <div class="shield">SMST</div>
+    <div>
+      <div class="t">Steamboat Mountain</div>
+      <div class="s">SOCCER TOURNAMENT · 42ND ANNUAL</div>
+    </div>
+  </div>
+
+  <h1>Check a player</h1>
+  <p class="lede">If a referee added your child at the field because they were not on the roster,
+    this tells you whether they have been cleared to play.</p>
+
+  <div class="form">
+    <label class="f"><span>Player name</span>
+      <input type="text" id="name" autocomplete="off" autocapitalize="words"
+             placeholder="First and last name"
+             onkeydown="if(event.key==='Enter')check()"></label>
+    <label class="f"><span>Team, if you know it</span>
+      <select id="team"><option value="">Any team</option></select></label>
+    <button class="check" id="btn" onclick="check()">Check</button>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div class="result" id="result">
+    <div class="lamp" id="lamp">—</div>
+    <div class="r-label" id="label">—</div>
+    <div class="r-who" id="who"></div>
+    <div class="r-detail" id="detail"></div>
+    <div class="watching" id="watching" style="display:none">
+      <span class="pulse"></span><span>Watching for a decision, this updates on its own</span>
+    </div>
+    <div class="cheer" id="cheer" style="display:none"></div>
+  </div>
+
+  <div class="note">
+    <b>Most players never need this.</b> If your child is on the team roster they are cleared and
+    nothing else is required. This page only matters when a name had to be written in at the field.
+  </div>
+
+  <div class="foot">
+    Steamboat Soccer Club · <a href="https://www.steamboat-soccer.com/tournament-a">steamboat-soccer.com</a><br>
+    <a href="scoreboard.html">Live scores</a> · <a href="rap/">Sideline conduct</a>
+    <div class="jaref">
+      <a href="https://jareferee.com" target="_blank" rel="noopener">
+        <img src="https://jareferee.github.io/GamedayCommandCenter/assets/brand/jareferee-mark-light.png"
+             alt="JAReferee" width="22" height="22"><b>JAReferee</b>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="https://jareferee.github.io/GamedayCommandCenter/config.js"></script>
+<script>
+var BACKEND = (window.JAR && JAR.BACKEND) || 'https://script.google.com/macros/s/AKfycbxQXvVq-gtGfUvgXF3NJXkFU_4aVlqFclU0bF0B0dQWbpjb42tstU7UnbKLf5DFP3PY/exec';
+var S={last:'', poll:null, lamp:''};
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+fetch(BACKEND+'?action=smstTeams').then(function(r){return r.json();}).then(function(res){
+  if(!res||res.status!=='ok') return;
+  var sel=document.getElementById('team');
+  sel.innerHTML='<option value="">Any team</option>'+
+    (res.data||[]).map(function(t){
+      return '<option value="'+esc(t.team)+'">'+esc(t.team)+'</option>';
+    }).join('');
+}).catch(function(){});
+
+function check(manual){
+  var name=document.getElementById('name').value.trim();
+  var team=document.getElementById('team').value;
+  var err=document.getElementById('err');
+  if(manual!==false) err.textContent='';
+
+  if(name.replace(/[^A-Za-z]/g,'').length<3){
+    err.textContent='Type at least three letters of the name.'; return;
+  }
+
+  var btn=document.getElementById('btn');
+  if(manual!==false){ btn.disabled=true; btn.textContent='Checking…'; }
+
+  fetch(BACKEND+'?action=playerStatus&name='+encodeURIComponent(name)+
+        (team?'&team='+encodeURIComponent(team):''))
+    .then(function(r){return r.json();})
+    .then(function(res){
+      btn.disabled=false; btn.textContent='Check';
+      show(res, name, team);
+    })
+    .catch(function(){
+      btn.disabled=false; btn.textContent='Check';
+      if(manual!==false) err.textContent='No connection. Try again in a moment.';
+    });
+}
+
+function show(res, name, team){
+  var box=document.getElementById('result');
+  box.className='result on';
+  document.getElementById('cheer').style.display='none';
+
+  if(!res||res.status!=='ok'){ box.className='result'; return; }
+
+  if(!res.found){
+    stopPoll();
+    box.classList.add('grey');
+    document.getElementById('lamp').textContent='?';
+    document.getElementById('label').textContent =
+      res.reason==='ambiguous' ? 'More than one' : 'No record yet';
+    document.getElementById('who').textContent='';
+    document.getElementById('detail').textContent=res.message||'';
+    document.getElementById('watching').style.display='none';
+    S.lamp='';
+    return;
+  }
+
+  var p=res.player;
+  box.classList.add(p.lamp);
+  document.getElementById('lamp').textContent =
+    p.lamp==='green' ? '✓' : p.lamp==='amber' ? '⋯' : '✕';
+  document.getElementById('label').textContent=p.label;
+  document.getElementById('who').textContent =
+    (p.jersey?'#'+p.jersey+'  ':'')+p.name+(p.team?'  ·  '+p.team:'');
+  document.getElementById('detail').textContent=p.detail;
+
+  // The moment a parent is waiting for
+  if(S.lamp && S.lamp!=='green' && p.lamp==='green'){
+    var c=document.getElementById('cheer');
+    c.textContent='Just cleared. Go and enjoy the game.';
+    c.style.display='block';
+  }
+  S.lamp=p.lamp;
+
+  // Keep watching while the answer can still change
+  if(p.lamp==='green'){
+    stopPoll();
+    document.getElementById('watching').style.display='none';
+  } else {
+    document.getElementById('watching').style.display='flex';
+    startPoll(name, team);
+  }
+}
+
+function startPoll(name, team){
+  stopPoll();
+  S.poll=setInterval(function(){ check(false); }, 12000);
+}
+function stopPoll(){ if(S.poll){ clearInterval(S.poll); S.poll=null; } }
+
+// Deep link from a referee: player.html?name=Yip,%20Brian
+(function(){
+  var P=new URLSearchParams(location.search);
+  var n=P.get('name');
+  if(n){ document.getElementById('name').value=n; check(); }
+})();
+</script>
+</body>
+</html>
